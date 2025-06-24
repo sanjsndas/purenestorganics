@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureNest Organics - Potted Garden Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #4a7c59;
+            --secondary-color: #d8b4a0;
+            --accent-color: #a37a74;
+            --text-color: #333;
+            --light-bg: #f8f5f2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3a5a40 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="%23f8f5f2" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%23f8f5f2" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8c40.92-19,84.73-46,130.83-49.67c36.26-2.85,70.9,9.42,98.6,31.56c31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5c22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%23f8f5f2" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46c59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .slogan {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link[aria-current="page"] {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+            left: 20%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .service-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            flex: 1 1 300px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .pricing-table th, .pricing-table td {
+            border: 1px solid var(--secondary-color);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .pricing-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .consultant-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .consultant-img {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .consultant-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .consultant-text {
+            flex: 2 1 500px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .tip-card {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .tip-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .disclaimer {
+            background-color: #f0f0f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1 1 300px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .address {
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        .satisfaction-guarantee {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .guarantee-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .topic-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                margin: 0.3rem 0;
+            }
+            
+            .consultant-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">PureNest Organics</div>
+            <div class="slogan">"Rooted, even in a pot."</div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link" tabindex="0"aria-current="page">Home</a>
+            <a href="privacy.html" class="nav-link" tabindex="0">Privacy</a>
+            <a href="terms.html" class="nav-link" tabindex="0" >Terms & Conditions</a>
+            <a href="cookies.html" class="nav-link" tabindex="0">Cookies</a>
+            <a href="contact.html" class="nav-link" tabindex="0">Contact Us</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">Our Services</h2>
+            <p>PureNest Organics specializes in potted garden services and planter irrigation solutions for garden architects and sustainable landscapers. Our comprehensive range of services is designed to bring nature's beauty to urban spaces while maintaining ecological balance and sustainability. Whether you're looking to transform a small balcony into a lush retreat or create an impressive potted garden display for a commercial space, our team of experts has the knowledge and experience to make your vision a reality.</p>
+            
+            <p>We understand that every space is unique, which is why we offer customized solutions tailored to your specific needs. Our services combine aesthetic appeal with practical functionality, ensuring that your potted garden not only looks beautiful but thrives in its environment. From initial design concepts to ongoing maintenance, we provide end-to-end solutions that make urban gardening accessible and enjoyable.</p>
+            
+            <div class="service-card">
+                <div class="card">
+                    <img src="s1.jpg" alt="Potted Garden Design" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Potted Garden Design</h3>
+                        <p>Our expert designers create stunning potted arrangements tailored to your space, climate, and aesthetic preferences. We consider sunlight exposure, seasonal changes, and plant compatibility to ensure thriving ecosystems. Our design process begins with a thorough assessment of your space, followed by a customized planting plan that takes into account color schemes, textures, and seasonal interest.</p>
+                        <p>We specialize in creating visually striking compositions that work harmoniously with your existing architecture and decor. Whether you prefer modern minimalist arrangements or lush, tropical displays, our designers will create a potted garden that reflects your personal style while being perfectly adapted to your environment.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="s2.jpg" alt="Planter Irrigation Systems" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Planter Irrigation Systems</h3>
+                        <p>Smart irrigation solutions that conserve water while keeping your plants healthy. Our systems include moisture sensors, automated scheduling, and rainwater harvesting options for sustainable watering. We design irrigation systems that are tailored to your specific plant collection and environmental conditions, ensuring optimal hydration without waste.</p>
+                        <p>Our advanced irrigation technology includes programmable timers, drip irrigation components, and smart controllers that can be managed via smartphone apps. We also offer retrofit solutions for existing potted gardens, making it easy to upgrade your watering system without disturbing your plants. With our irrigation solutions, you can enjoy a thriving garden while conserving water and reducing maintenance time.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="s3.jpg" alt="Organic Maintenance" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Organic Maintenance</h3>
+                        <p>Chemical-free care for your potted gardens. Our maintenance services include pruning, fertilizing with organic compost, pest management using natural predators, and seasonal plant rotation. We believe in working with nature rather than against it, using methods that promote long-term plant health and ecological balance.</p>
+                        <p>Our maintenance programs are customized to your specific garden needs, with options ranging from weekly visits to seasonal tune-ups. We keep detailed records of each plant's health and growth patterns, allowing us to anticipate and prevent potential problems before they arise. Our organic approach ensures that your potted garden remains safe for children, pets, and beneficial wildlife while maintaining its beauty year-round.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Pricing</h2>
+            <p>At PureNest Organics, we believe in transparent pricing that reflects the quality of our services while remaining accessible to our clients. Our pricing structure is designed to accommodate projects of all sizes, from small residential balconies to large commercial installations. Below is our general pricing guide, though we're happy to provide customized quotes for unique projects or ongoing service agreements.</p>
+            
+            <p>We offer various packages and subscription options that can provide significant savings for long-term clients. Our team will work with you to develop a service plan that fits both your budget and your gardening goals. All our prices include organic materials and eco-friendly products, with no hidden fees or unexpected charges.</p>
+            
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price Range</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td >Potted Garden Design</td>
+                        <td>$150 - $500</td>
+                        <td>Includes initial consultation, design plan, and installation of plants and containers.</td>
+                    </tr>
+                    <tr>
+                        <td>Planter Irrigation Systems</td>
+                        <td>$200 - $800</td>
+                        <td>Installation of smart irrigation systems tailored to your garden's needs.</td>
+                    </tr>
+                    <tr>
+                        <td>Organic Maintenance (Monthly)</td>
+                        <td>$100/month</td>
+                        <td>Regular maintenance visits including pruning, fertilizing, and pest management.</td>
+                    </tr>
+                    <tr>
+                        <td>Consultation Services</td>
+                        <td>$75/hour</td>
+                        <td>Personalized advice and planning for your potted garden.</td>
+                    </tr>
+                    <tr>
+                        <td>Custom Projects</td>
+                        <td>Contact for Quote</td>
+                        <td>Tailored solutions for unique gardening needs and large-scale installations.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Consultant Services</h2>
+            <div class="consultant-section">
+                <div class="consultant-img">
+                    <img src="p1.png" alt="Garden Consultant">
+                </div>
+                <div class="consultant-text">
+                    <h3>Expert Consultation for Your Potted Garden Needs</h3>
+                    <p>Our team of certified horticulturists and landscape architects provides personalized consultations to help you create and maintain thriving potted gardens. Whether you're a homeowner looking to greenify your balcony or a commercial property manager seeking sustainable landscaping solutions, our consultants will assess your space, understand your goals, and recommend the perfect plant combinations and care routines.</p>
+                    <p>During our consultation sessions, we'll cover:</p>
+                    <ul>
+                        <li>Space assessment and sunlight analysis to determine the best plant choices.</li>
+                        <li>Plant selection based on your environment and preferences, ensuring a harmonious garden.</li>
+                        <li>Soil composition recommendations tailored to the specific needs of your plants.</li>
+                        <li>Watering system design that maximizes efficiency and plant health.</li>
+                        <li>Seasonal care and rotation planning to keep your garden vibrant year-round.</li>
+                        <li>Organic pest management strategies that protect your plants and the environment.</li>
+                    </ul>
+                    <p>Our consultants stay updated with the latest research in urban horticulture and sustainable practices, ensuring you receive advice that's both scientifically sound and practically applicable. We believe in creating potted gardens that are not just beautiful but also ecologically responsible, enhancing your living space while contributing positively to the environment.</p>
+                    <a href="#" class="btn">Schedule a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">About PureNest Organics</h2>
+            <div class="consultant-section">
+                <div class="consultant-text">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2015 by horticulturist Emma Richardson, PureNest Organics began as a small urban gardening initiative in New York City. Frustrated by the lack of sustainable, space-efficient gardening solutions for urban dwellers, Emma developed innovative potted garden systems that could thrive in limited spaces while supporting local ecosystems. Our mission is to empower individuals and communities to embrace gardening, regardless of space constraints.</p>
+                    <p>What started as a passion project quickly grew into a full-service organic gardening company serving residential and commercial clients throughout the tri-state area. Today, our team includes landscape architects, irrigation specialists, and organic gardening experts who share a common vision: to bring nature back into urban environments in ways that are beautiful, sustainable, and accessible. We are dedicated to educating our clients about the benefits of organic gardening and the importance of biodiversity in urban settings.</p>
+                    <h3>Our Philosophy</h3>
+                    <p>At PureNest Organics, we believe that even the smallest potted garden can make a big difference. Our approach combines traditional horticultural wisdom with modern ecological science to create gardens that:</p>
+                    <ul>
+                        <li>Support local biodiversity by incorporating native plants and pollinator-friendly species.</li>
+                        <li>Improve air quality through the natural filtration provided by plants.</li>
+                        <li>Provide habitat for pollinators, contributing to the health of local ecosystems.</li>
+                        <li>Offer therapeutic benefits, enhancing mental well-being and reducing stress.</li>
+                        <li>Enhance urban aesthetics, making cities more livable and enjoyable.</li>
+                    </ul>
+                    <p>We're committed to using only organic, sustainable materials and practices in all our services. From our peat-free potting mixes to our water-conserving irrigation systems, every aspect of our work reflects our dedication to environmental stewardship. We strive to inspire our clients to adopt sustainable practices in their own lives, fostering a deeper connection with nature.</p>
+                </div>
+                <div class="consultant-img">
+                    <img src="p2.png" alt="PureNest Team">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Customer Feedback</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"PureNest Organics transformed my balcony into a lush oasis! Their team was knowledgeable and attentive to my needs. I never knew I could have such a vibrant garden in such a small space!"</p>
+                    <p class="testimonial-author">- Sarah J.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"I love my new potted garden! The irrigation system they installed has made maintenance a breeze. I can finally enjoy my plants without worrying about over or under-watering them!"</p>
+                    <p class="testimonial-author">- Mark T.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The consultation was incredibly helpful. I now have a beautiful and sustainable garden that I can enjoy year-round. The team provided me with so many great tips and resources!"</p>
+                    <p class="testimonial-author">- Lisa K.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Gardening Tips</h2>
+            <div class="tip-card">
+                <h3 class="tip-title">Choose the Right Plants</h3>
+                <p>Select plants that are suited to your local climate and the specific conditions of your space, such as sunlight and moisture levels. Researching native plants can also help you create a garden that thrives with minimal intervention.</p>
+            </div>
+            <div class="tip-card">
+                <h3 class="tip-title">Water Wisely</h3>
+                <p>Use a moisture meter to determine when your plants need water, and consider installing a drip irrigation system for efficiency. This not only conserves water but also ensures your plants receive consistent moisture.</p>
+            </div>
+            <div class="tip-card">
+                <h3 class="tip-title">Fertilize Organically</h3>
+                <p>Opt for organic fertilizers to promote healthy growth without harming the environment. Compost is a great option! It enriches the soil and provides essential nutrients to your plants.</p>
+            </div>
+            <div class="tip-card">
+                <h3 class="tip-title">Prune Regularly</h3>
+                <p>Regular pruning helps maintain plant health, encourages new growth, and keeps your potted garden looking tidy. It also allows for better air circulation, reducing the risk of disease.</p>
+            </div>
+            <div class="tip-card">
+                <h3 class="tip-title">Monitor for Pests</h3>
+                <p>Keep an eye out for pests and diseases. Early detection can save your plants from severe damage. Implementing natural pest control methods can help maintain a healthy garden ecosystem.</p>
+            </div>
+            <div class="tip-card">
+                <h3 class="tip-title">Rotate Your Plants</h3>
+                <p>Rotate your potted plants periodically to ensure even growth and exposure to sunlight. This practice can help prevent stunted growth and promote a more balanced garden.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Topics</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3 class="topic-title">Sustainable Gardening Practices</h3>
+                    <p>Learn how to implement sustainable practices in your gardening routine, including composting, using native plants, and reducing water usage. These practices not only benefit your garden but also contribute to a healthier planet.</p>
+                </div>
+                <div class="topic-card">
+                    <h3 class="topic-title">Indoor vs. Outdoor Potted Gardens</h3>
+                    <p>Explore the differences between indoor and outdoor potted gardens, including plant selection, care requirements, and environmental considerations. Understanding these differences can help you create a thriving garden in any setting.</p>
+                </div>
+                <div class="topic-card">
+                    <h3 class="topic-title">Seasonal Gardening Tips</h3>
+                    <p>Discover seasonal tips for maintaining your potted garden throughout the year, including planting schedules and seasonal plant care. Adapting your gardening practices to the seasons can enhance your garden's health and beauty.</p>
+                </div>
+                <div class="topic-card">
+                    <h3 class="topic-title">Creating a Pollinator-Friendly Garden</h3>
+                    <p>Find out how to attract pollinators to your potted garden by selecting the right plants and creating a welcoming environment. Pollinators play a crucial role in our ecosystem, and supporting them can lead to a more vibrant garden.</p>
+                </div>
+                <div class="topic-card">
+                    <h3 class="topic-title">The Benefits of Urban Gardening</h3>
+                    <p>Understand the benefits of urban gardening, including improved air quality, reduced heat, and enhanced community well-being. Urban gardens can transform concrete landscapes into green havens, benefiting both residents and wildlife.</p>
+                </div>
+                <div class="topic-card">
+                    <h3 class="topic-title">DIY Potted Garden Projects</h3>
+                    <p>Get inspired with DIY projects for creating unique potted gardens, including vertical gardens, hanging pots, and themed arrangements. These projects can add a personal touch to your space and encourage creativity in gardening.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Disclaimer</h2>
+            <div class="disclaimer">
+                <p>The information provided on this website is for general informational purposes only. While we strive to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk. We encourage you to consult with a professional for specific gardening advice tailored to your unique situation.</p>
+            </div>
+        </section>
+
+        <div class="satisfaction-guarantee">
+            <h3 class="guarantee-title">Customer Satisfaction Guaranteed</h3>
+            <p>At PureNest Organics, we prioritize your satisfaction. If you're not completely happy with our services, let us know, and we'll make it right! Our commitment to quality and customer care is at the heart of everything we do, and we strive to exceed your expectations with every project.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Us</h4>
+                <p>Email: info@purenestorganics.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Follow Us</h4>
+                <p>Instagram: @purenestorganics</p>
+                <p>Facebook: PureNest Organics</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Address</h4>
+                <p class="address">24 Waverly Pl, New York, NY 10003, USA</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

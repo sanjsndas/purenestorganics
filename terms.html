@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - PureNest Organics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #4a7c59;
+            --secondary-color: #d8b4a0;
+            --accent-color: #a37a74;
+            --text-color: #333;
+            --light-bg: #f8f5f2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3a5a40 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="%23f8f5f2" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%23f8f5f2" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8c40.92-19,84.73-46,130.83-49.67c36.26-2.85,70.9,9.42,98.6,31.56c31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5c22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%23f8f5f2" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46c59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .slogan {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link[aria-current="page"] {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+            left: 20%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .terms-point {
+            margin-bottom: 2rem;
+        }
+
+        .terms-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1 1 300px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .address {
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                margin: 0.3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">PureNest Organics</div>
+            <div class="slogan">"Rooted, even in a pot."</div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link" tabindex="0">Home</a>
+            <a href="privacy.html" class="nav-link" tabindex="0">Privacy</a>
+            <a href="terms.html" class="nav-link" tabindex="0" aria-current="page">Terms & Conditions</a>
+            <a href="cookies.html" class="nav-link" tabindex="0">Cookies</a>
+            <a href="contact.html" class="nav-link" tabindex="0">Contact Us</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="section">
+            <h1 class="section-title">Terms and Conditions</h1>
+            <p>Last Updated: June 15, 2023</p>
+            
+            <p>Welcome to PureNest Organics! These Terms and Conditions ("Terms") govern your use of our website and services. By accessing or using our website, you agree to be bound by these Terms. If you disagree with any part of these Terms, please do not use our website or services. These Terms apply to all visitors, users, and others who wish to access or use our services.</p>
+            
+            <div class="terms-point">
+                <h2 class="terms-title">1. Acceptance of Terms</h2>
+                <p>By accessing or using the PureNest Organics website, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. These Terms constitute a legally binding agreement between you and PureNest Organics regarding your use of the website and services. If you do not agree to these Terms, you must not access or use our website. Your continued use of the website constitutes acceptance of these Terms.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">2. Changes to Terms</h2>
+                <p>PureNest Organics reserves the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice of such changes by updating the "Last Updated" date at the top of this page. Your continued use of the website following the posting of changes constitutes your acceptance of such changes. We encourage you to review these Terms periodically for any updates or changes.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">3. User Accounts</h2>
+                <p>When you create an account with us, you must provide accurate and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account. We reserve the right to refuse service, terminate accounts, or remove/edit content at our sole discretion.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">4. Service Description</h2>
+                <p>PureNest Organics provides potted garden design, installation, and maintenance services through our website and physical locations. We strive to provide accurate descriptions of our services, but we do not warrant that the quality, content, or materials will meet your expectations. All services are subject to availability and we reserve the right to modify or discontinue services without notice at any time.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">5. Order Acceptance</h2>
+                <p>Your placement of an order through our website constitutes an offer to purchase services. We reserve the right to accept or decline your order for any reason. Order acceptance occurs when we send you confirmation of your order. Some situations that may result in order cancellation include limitations on services availability, errors in pricing, or suspicion of fraudulent activity.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">6. Pricing and Payment</h2>
+                <p>All prices listed on our website are in U.S. dollars and are subject to change without notice. You agree to pay all charges incurred by your use of our services at the prices in effect at the time of purchase. We accept various payment methods as indicated on our website. You represent that you have the legal right to use any payment method you provide.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">7. Cancellation Policy</h2>
+                <p>You may cancel scheduled services up to 48 hours before the scheduled service time without penalty. Cancellations made within 48 hours of service may be subject to a cancellation fee of up to 50% of the service cost. No-shows will be charged the full service fee. PureNest Organics reserves the right to cancel or reschedule services due to circumstances beyond our control (e.g., extreme weather).</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">8. Refund Policy</h2>
+                <p>We offer refunds for services not performed to your satisfaction within 14 days of service completion, provided you contact us with your concerns. Refund requests must include a detailed explanation of why you were dissatisfied. We reserve the right to inspect the service location before granting a refund. Purchases of physical goods may be returned within 30 days with proof of purchase for refund or exchange.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">9. Intellectual Property</h2>
+                <p>All content on this website, including text, graphics, logos, designs, photographs, and software, is the property of PureNest Organics or its licensors and protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works of any content without our express written permission. Any unauthorized use may violate copyright and other laws.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">10. User Content</h2>
+                <p>You retain all rights to any content you submit or post on our website. However, by submitting content, you grant us a worldwide, non-exclusive, royalty-free, sublicensable license to use, reproduce, distribute, and display your content in connection with our business. You represent that you have all necessary rights to grant this license for any content you submit.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">11. Prohibited Conduct</h2>
+                <p>You agree not to engage in any of the following activities: (1) use our website for any illegal purpose or in violation of any laws; (2) harass, threaten, or harm another person; (3) interfere with security-related features of the website; (4) attempt to gain unauthorized access to our systems; (5) interfere with the operation of our website or services. Violations may result in termination of access.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">12. Termination</h2>
+                <p>We may terminate or suspend your access to our services immediately, without prior notice or liability, for any reason including breach of these Terms. Upon termination, your right to use the service will cease immediately. Provisions of these Terms that should survive termination shall survive, including intellectual property, disclaimers, indemnity, and limitations of liability.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">13. Disclaimers</h2>
+                <p>OUR SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTY THAT OUR SERVICES WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE. YOUR USE OF OUR SERVICES IS AT YOUR SOLE RISK.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">14. Limitation of Liability</h2>
+                <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, PURENEST ORGANICS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF OUR SERVICES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU HAVE PAID US IN THE LAST SIX MONTHS. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR LIMITATION OF LIABILITY.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">15. Indemnification</h2>
+                <p>You agree to defend, indemnify, and hold harmless PureNest Organics, its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses arising from: (1) your use of and access to our services; (2) your violation of these Terms; (3) your violation of any third-party rights, including intellectual property or privacy rights. We reserve the right to assume exclusive defense and control of any matter subject to indemnification.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">16. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of law provisions. Any legal action arising from these Terms or our services shall be brought in the state or federal courts located in New York County, New York. You consent to personal jurisdiction in these courts.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">17. Dispute Resolution</h2>
+                <p>Before filing any claim against PureNest Organics, you agree to attempt to resolve the dispute by contacting us. If resolution cannot be reached, you agree to mediate the dispute before resorting to arbitration or litigation. Any arbitration shall be conducted by a single arbitrator under the rules of the American Arbitration Association. Judgment may be entered in any court of competent jurisdiction.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">18. Third-Party Services</h2>
+                <p>Our website may contain links to third-party websites or services that are not owned or controlled by PureNest Organics. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites. You acknowledge that PureNest Organ ics shall not be liable for any damages or losses caused by your use of any third-party services. We encourage you to review the terms and conditions and privacy policies of any third-party services you use.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">19. Force Majeure</h2>
+                <p>PureNest Organics shall not be liable for any failure to perform its obligations under these Terms if such failure results from any cause beyond PureNest Organics's reasonable control, including, but not limited to, mechanical, electronic, or communications failure or degradation. This includes acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, strikes, or shortages of transportation facilities.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">20. Severability</h2>
+                <p>If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, the remaining provisions of these Terms shall remain in full force and effect. The invalid or unenforceable provision shall be deemed modified to the extent necessary to make it valid and enforceable, consistent with the intent of the parties.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">21. Waiver</h2>
+                <p>No waiver of any term or condition of these Terms shall be deemed a further or continuing waiver of such term or any other term, and any failure of PureNest Organics to assert a right or provision under these Terms shall not constitute a waiver of such right or provision. Any waiver must be in writing and signed by an authorized representative of PureNest Organics.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">22. Assignment</h2>
+                <p>You may not assign or transfer these Terms, by operation of law or otherwise, without our prior written consent. Any attempt by you to assign or transfer these Terms without such consent will be null and of no effect. PureNest Organics may assign or transfer these Terms at its sole discretion without restriction. Subject to the foregoing, these Terms will bind and inure to the benefit of the parties, their successors, and permitted assigns.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">23. Entire Agreement</h2>
+                <p>These Terms constitute the entire agreement between you and PureNest Organics regarding your use of our website and services, superseding any prior agreements between you and PureNest Organics regarding your use of the website and services. Any failure to enforce any right or provision of these Terms will not be deemed a waiver of such right or provision.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">24. Contact Information</h2>
+                <p>If you have any questions about these Terms, please contact us at info@purenestorganics.com or at our mailing address: 24 Waverly Pl, New York, NY 10003, USA. We are committed to addressing your inquiries and concerns regarding these Terms.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">25. User Responsibilities</h2>
+                <p>You are responsible for your use of our services and for any content you submit. You agree to comply with all applicable laws and regulations in connection with your use of our services. You are responsible for ensuring that your use of our services does not violate any third-party rights, including intellectual property rights.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">26. Privacy Policy</h2>
+                <p>Your use of our services is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By using our services, you consent to the collection and use of your personal information as described in our Privacy Policy. We encourage you to review our Privacy Policy to understand our practices regarding your personal information.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">27. Feedback and Reviews</h2>
+                <p>We welcome your feedback and reviews regarding our services. By submitting feedback or reviews, you grant us the right to use, modify, and publish your feedback in any manner we choose. We reserve the right to remove any feedback or reviews that we deem inappropriate or in violation of these Terms.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">28. Marketing Communications</h2>
+                <p>By providing your contact information, you consent to receive marketing communications from PureNest Organics. You may opt-out of receiving marketing communications at any time by following the unsubscribe instructions included in each communication or by contacting us directly. Please note that even if you opt-out, we may still send you service-related communications.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">29. Third-Party Links</h2>
+                <p>Our website may contain links to third-party websites that are not owned or controlled by PureNest Organics. We do not endorse or assume any responsibility for the content, privacy policies, or practices of any third-party websites. You acknowledge and agree that PureNest Organics shall not be liable for any damages or losses caused by your use of any third-party websites.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">30. Electronic Communications</h2>
+                <p>By using our services, you consent to receive electronic communications from us. We may communicate with you via email, in-app notifications, or through other means. You agree that all agreements, notices, disclosures, and other communications that we provide to you electronically will satisfy any legal requirement that such communications be in writing.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">31. User Conduct</h2>
+                <p>You agree to use our services only for lawful purposes and in accordance with these Terms. You agree not to use our services in any way that violates any applicable federal, state, local, or international law or regulation. You also agree not to engage in any conduct that restricts or inhibits anyone's use or enjoyment of our services.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">32. Security of Your Information</h2>
+                <p>We take the security of your information seriously and implement reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or method of electronic storage is 100% secure. Therefore, while we strive to protect your personal information, we cannot guarantee its absolute security.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">33. User Account Termination</h2>
+                <p>You may terminate your account at any time by contacting us. Upon termination, your account will be deactivated, and you will no longer have access to your account or any associated content. We reserve the right to retain certain information as required by law or for legitimate business purposes after account termination.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">34. User Rights</h2>
+                <p>You may have certain rights regarding your personal information under applicable laws, including the right to access, correct, delete, or restrict the processing of your personal data. If you wish to exercise any of these rights, please contact us using the contact information provided in these Terms.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">35. Changes to Services</h2>
+                <p>We reserve the right to modify or discontinue our services at any time without notice. We may also impose limits on certain features or restrict access to parts of our services without notice or liability. We will not be liable for any modification, suspension, or discontinuation of our services.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">36. User Consent for Data Processing</h2>
+                <p>By using our services, you consent to the processing of your personal information as described in our Privacy Policy. If you do not agree with the terms of our Privacy Policy, please do not use our services. You have the right to withdraw your consent at any time, and we will cease processing your personal information upon request.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">37. Data Protection Compliance</h2>
+                <p>We are committed to complying with applicable data protection laws and regulations. We will take appropriate measures to ensure that your personal information is processed in accordance with these laws. If you have any questions or concerns about our data protection practices, please contact us.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">38. User Feedback and Suggestions</h2>
+                <p>We welcome your feedback and suggestions regarding our services. By submitting feedback, you grant us the right to use, modify, and publish your feedback in any manner we choose. We reserve the right to remove any feedback that we deem inappropriate or in violation of these Terms.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">39. User Rights Under GDPR</h2>
+                <p>If you are a resident of the European Economic Area (EEA), you have certain data protection rights. PureNest Organics aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data. If you wish to be informed about what Personal Data we hold about you and if you want it to be removed from our systems, please contact us.</p>
+            </div>
+
+            <div class="terms-point">
+                <h2 class="terms-title">40. User Rights Under CCPA</h2>
+                <p>If you are a California resident, you have the right to request information from us regarding the disclosure of your personal information to third parties for their direct marketing purposes. To make such a request, please contact us using the contact information provided in these Terms. We will respond to your request within the timeframe required by law.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Us</h4>
+                <p>Email: info@purenestorganics.com</p>
+                <p>Phone: (800) 778-2333</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Follow Us</h4>
+                <p>Instagram: @purenestorganics</p>
+                <p>Facebook: PureNest Organics</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Address</h4>
+                <p class="address">24 Waverly Pl, New York, NY 10003, USA</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

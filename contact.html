@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PureNest Organics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #4a7c59;
+            --secondary-color: #d8b4a0;
+            --accent-color: #a37a74;
+            --text-color: #333;
+            --light-bg: #f8f5f2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3a5a40 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="%23f8f5f2" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%23f8f5f2" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8c40.92-19,84.73-46,130.83-49.67c36.26-2.85,70.9,9.42,98.6,31.56c31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5c22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%23f8f5f2" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46c59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .slogan {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link[aria-current="page"] {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+            left: 20%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .contact-point {
+            margin-bottom: 2rem;
+        }
+
+        .contact-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            flex: 1 1 300px;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1 1 300px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .address {
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                margin: 0.3rem 0;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">PureNest Organics</div>
+            <div class="slogan">"Rooted, even in a pot."</div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link" tabindex="0">Home</a>
+            <a href="privacy.html" class="nav-link" tabindex="0">Privacy</a>
+            <a href="terms.html" class="nav-link" tabindex="0">Terms & Conditions</a>
+            <a href="cookies.html" class="nav-link" tabindex="0">Cookies</a>
+            <a href="contact.html" class="nav-link" tabindex="0" aria-current="page">Contact Us</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="section">
+            <h1 class="section-title">Contact PureNest Organics</h1>
+            <p>We'd love to hear from you! Whether you have questions about our services, need assistance with your potted garden, or want to schedule a consultation, our team is here to help. Please fill out the form below, and we'll get back to you as soon as possible.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">First Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group full-width">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="service">Service Request</option>
+                        <option value="consultation">Consultation Booking</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+            </form>
+        </section>
+
+        <div class="contact-info">
+            <div class="info-card">
+                <h3 class="info-title">Visit Us</h3>
+                <p>24 Waverly Pl<br>
+                New York, NY 10003<br>
+                United States</p>
+                <p>Our showroom is open Monday through Friday from 9:00 AM to 6:00 PM, and Saturdays from 10:00 AM to 4:00 PM.</p>
+            </div>
+            <div class="info-card">
+                <h3 class="info-title">Call Us</h3>
+                <p>Main: (800) 778-2333<br>
+                Support: (123) 456-7891<br>
+                Fax: (123) 456-7892</p>
+                <p>Our customer service team is available Monday through Friday from 8:00 AM to 7:00 PM EST.</p>
+            </div>
+            <div class="info-card">
+                <h3 class="info-title">Email Us</h3>
+                <p>General Inquiries: info@purenestorganics.com<br>
+                Support: support@purenestorganics.com<br>
+                Careers: careers@purenestorganics.com</p>
+                <p>We strive to respond to all emails within 24 hours during business days.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="contact-point">
+                <h3 class="contact-title">1. How do I schedule a consultation?</h3>
+                <p>You can schedule a consultation by filling out our contact form, calling our office, or visiting our showroom. Our team will work with you to find a convenient time for your consultation. Consultations typically last 60-90 minutes and include a detailed assessment of your space and gardening needs. We recommend preparing any questions you have in advance to make the most of your consultation time.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">2. What areas do you serve?</h3>
+                <p>We primarily serve the New York metropolitan area, including all five boroughs of New York City, Long Island, Westchester County, and parts of New Jersey and Connecticut. For locations outside our standard service area, additional travel fees may apply. Please contact us to discuss your specific location and we'll let you know if we can accommodate your needs.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">3. How soon can you start my project?</h3>
+                <p>Project start times vary depending on our current schedule and the complexity of your project. During peak seasons (spring and early summer), we recommend booking at least 4-6 weeks in advance. For smaller projects or maintenance services, we may be able to accommodate you within 1-2 weeks. Contact us for current availability and we'll provide an estimated timeline for your specific project.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">4. What payment methods do you accept?</h3>
+                <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), checks, and bank transfers. For larger projects, we may require a deposit to secure your booking, with the balance due upon completion of services. We also offer financing options through third-party providers for qualifying customers. All payment details will be clearly outlined in your service agreement.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">5. Do you offer emergency services?</h3>
+                <p>Yes, we offer emergency services for urgent plant health issues or irrigation system failures. Our emergency service line is available 24/7 at (123) 456-7891. Emergency service calls are subject to higher rates and availability. For non-emergency issues, we recommend scheduling during regular business hours to avoid additional fees.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">6. Can I get a quote online?</h3>
+                <p>We provide preliminary estimates based on the information you provide through our contact form or during a phone consultation. However, for accurate pricing, we typically need to assess your space in person. Our quotes are detailed and include all anticipated costs with no hidden fees. We're happy to discuss budget considerations and work with you to develop a plan that meets your needs and financial parameters.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">7. What's your cancellation policy?</h3>
+                <p>We require at least 48 hours notice for cancellations or rescheduling of appointments. Cancellations made with less than 48 hours notice may be subject to a cancellation fee of up to 50% of the scheduled service cost. No-shows will be charged the full service fee. We understand emergencies happen and will consider exceptions on a case-by-case basis with proper documentation.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">8. Do you provide maintenance services?</h3>
+                <p>Yes, we offer comprehensive maintenance services for potted gardens, including watering, pruning, fertilizing, pest management, and seasonal plant rotation. Maintenance plans can be customized to your specific needs and schedule, from weekly visits to seasonal check-ups. Our maintenance services use only organic products and sustainable practices to keep your plants healthy and thriving.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">9. How do I care for my plants between visits?</h3>
+                <p>We provide detailed care instructions for all plants we install, tailored to your specific environment and plant types. General care tips include ensuring adequate sunlight, proper watering schedules, and monitoring for pests. We also recommend using organic fertilizers and soil amendments to promote healthy growth. If you have any questions or concerns about your plants between visits, feel free to reach out to us for guidance. Our team is always here to help you maintain a thriving garden.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">10. What types of plants do you recommend for indoor gardens?</h3>
+                <p>For indoor gardens, we recommend low-maintenance plants that thrive in various lighting conditions. Some popular choices include pothos, snake plants, peace lilies, and ZZ plants. These plants are not only beautiful but also help purify the air. We can help you select the best plants based on your space, light availability, and personal preferences during your consultation.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">11. Can you help with outdoor garden design?</h3>
+                <p>Absolutely! Our team specializes in outdoor garden design, including landscape planning, plant selection, and installation. We work closely with you to create a garden that reflects your style and complements your home. Whether you want a vibrant flower garden, a serene retreat, or a functional vegetable garden, we can help bring your vision to life.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">12. Do you offer workshops or classes?</h3>
+                <p>Yes, we offer workshops and classes on various gardening topics, including plant care, container gardening, and sustainable practices. These sessions are designed for all skill levels and provide hands-on experience. Check our website or contact us for upcoming workshop schedules and registration details. We love sharing our passion for gardening with the community!</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">13. What should I do if my plants are not thriving?</h3>
+                <p>If your plants are not thriving, it could be due to several factors, including improper watering, insufficient light, or pest infestations. We recommend assessing their environment and care routine. If you need assistance, feel free to contact us for a consultation. Our team can help diagnose the issue and provide tailored solutions to restore your plants' health.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">14. How do you ensure the quality of your plants?</h3>
+                <p>We source our plants from reputable nurseries that prioritize quality and sustainability. Each plant is carefully inspected for health and vigor before installation. Our team is trained to recognize signs of stress or disease, ensuring that only the best plants are selected for your garden. We also provide ongoing support to help you maintain their health after installation.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">15. Can I customize my garden design?</h3>
+                <p>Yes, we encourage customization! During your consultation, we will discuss your preferences, style, and any specific plants or features you want to include. Our goal is to create a garden that reflects your personality and meets your needs. We can incorporate unique elements such as decorative pots, trellises, or water features to enhance your garden's appeal.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">16. What is your approach to sustainability?</h3>
+                <p>At PureNest Organics, we are committed to sustainable gardening practices. We use organic fertilizers, pest control methods, and native plants whenever possible to promote biodiversity and reduce environmental impact. Our team is trained in eco-friendly techniques that support healthy ecosystems while providing beautiful gardens. We believe in creating spaces that are not only aesthetically pleasing but also environmentally responsible.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">17. How do I prepare for a consultation?</h3>
+                <p>To prepare for your consultation, think about your gardening goals, any specific plants you love, and the challenges you face in your space. It can be helpful to take photos of your area and note any particular features you want to discuss. Bring any questions you have, and our team will guide you through the process, providing expert advice tailored to your needs.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">18. Do you provide aftercare services?</h3>
+                <p>Yes, we offer aftercare services to ensure your garden continues to thrive after installation. Our maintenance plans can include regular visits for watering, pruning, fertilizing, and pest management. We also provide guidance on seasonal care and adjustments needed as your plants grow. Our goal is to support you in achieving a beautiful and healthy garden year-round.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">19. What if I have a specific budget?</h3>
+                <p>We understand that budget is an important consideration for many clients. During your consultation, we will discuss your budget and work with you to create a plan that meets your financial parameters. We can suggest cost-effective options and prioritize elements of your project to ensure you get the best value for your investment. Transparency is key, and we will provide detailed estimates to avoid any surprises.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">20. Can you help with plant selection for my specific environment?</h3>
+                <p>Absolutely! Our team has extensive knowledge of plant varieties and their specific care requirements. We will assess your environment, including light conditions, soil type, and climate, to recommend the best plants for your space. Whether you want low-maintenance options or vibrant blooms, we can help you choose plants that will thrive in your unique conditions.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">21. How do you handle pest control?</h3>
+                <p>We prioritize organic and eco-friendly pest control methods to protect your plants and the environment. Our team is trained to identify common pests and diseases and will implement preventive measures to minimize issues. If pests do occur, we use targeted treatments that are safe for your plants and the surrounding ecosystem. We believe in maintaining a healthy balance in your garden.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">22. What are your hours of operation?</h3>
+                <p>Our office hours are Monday through Friday from 9:00 AM to 6:00 PM, and Saturdays from 10:00 AM to 4:00 PM. We are closed on Sundays. However, our emergency service line is available 24/7 for urgent issues. Feel free to reach out during our business hours for any inquiries or to schedule a consultation.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">23. Do you offer gift certificates?</h3>
+                <p>Yes, we offer gift certificates that can be used for any of our services. They make a perfect gift for gardening enthusiasts or anyone looking to enhance their outdoor space. Gift certificates can be purchased in any amount and are valid for one year from the date of purchase. Contact us for more details on how to purchase a gift certificate.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">24. How can I stay updated on your services and promotions?</h3>
+                <p>You can stay updated by subscribing to our newsletter on our website. We regularly send out information about new services, promotions, and gardening tips. You can also follow us on social media platforms like Instagram and Facebook for the latest updates and inspiration. We love sharing our gardening journey with our community!</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">25. What should I do if I have a complaint?</h3>
+                <p>If you have a complaint, we encourage you to contact us directly so we can address your concerns promptly. We take customer feedback seriously and strive to resolve any issues to your satisfaction. You can reach us via email or phone, and our customer service team will work with you to find a resolution. Your satisfaction is our top priority.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">26. Can I see examples of your previous work?</h3>
+                <p>Yes, we have a portfolio of our previous projects available on our website. You can view photos and descriptions of various gardens we have designed and installed. We also encourage you to visit our showroom to see some of our plants and designs in person. If you have specific styles in mind, we can provide examples that align with your vision during your consultation.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">27. How do you handle seasonal changes in gardening?</h3>
+                <p>We provide seasonal gardening services to ensure your garden remains healthy and vibrant throughout the year. This includes seasonal plant rotation, pruning, and preparation for winter. Our team will assess your garden's needs as the seasons change and recommend adjustments to keep your plants thriving. We believe in proactive care to adapt to seasonal variations.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">28. What is your policy on refunds?</h3>
+                <p>We strive for customer satisfaction and will work with you to resolve any issues. If you are not satisfied with our services, please contact us within 14 days of service completion to discuss your concerns. We will assess the situation and determine if a refund or adjustment is warranted. Our goal is to ensure you are happy with your garden.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">29. Do you offer landscaping services?</h3>
+                <p>Yes, we offer comprehensive landscaping services, including design, installation, and maintenance. Our team can help with hardscaping, planting, and creating outdoor living spaces. Whether you want to enhance your front yard or create a backyard oasis, we can provide tailored solutions to meet your landscaping needs.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">30. How do I contact you for urgent matters?</h3>
+                <p>For urgent matters, please call our emergency service line at (123) 456-7891. Our team is available 24/7 to assist with urgent plant health issues or irrigation failures. For non-urgent inquiries, you can reach us during regular business hours via phone or email. We are here to help you with any gardening concerns you may have.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">31. Can you help with corporate or commercial projects?</h3>
+                <p>Yes, we offer services for corporate and commercial projects, including landscaping for offices, restaurants, and public spaces. Our team can work with you to create a professional and inviting environment that enhances your business's image. We understand the unique needs of commercial clients and can provide tailored solutions to meet those needs.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">32. What types of gardening styles do you specialize in?</h3>
+                <p>We specialize in a variety of gardening styles, including modern, traditional, cottage, and sustainable gardens. Our team is experienced in creating diverse landscapes that reflect your personal style and preferences. During your consultation, we will discuss your vision and recommend design elements that align with your desired aesthetic.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">33. How do you ensure customer satisfaction?</h3>
+                <p>Customer satisfaction is our top priority. We achieve this by providing high-quality services, clear communication, and ongoing support. Our team is dedicated to understanding your needs and exceeding your expectations. We welcome feedback and are always looking for ways to improve our services. Your happiness with your garden is what drives us.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">34. Do you provide plant care guides?</h3>
+                <p>Yes, we provide detailed plant care guides for all the plants we install. These guides include information on watering, light requirements, fertilization, and pest management. We want to empower you with the knowledge to care for your plants effectively. If you have any questions about plant care, our team is always available to assist you.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">35. Can I schedule a follow-up visit?</h3>
+                <p>Yes, we encourage follow-up visits to assess the health of your garden and make any necessary adjustments. You can schedule follow-up visits as part of our maintenance plan or request them as needed. Our team will provide ongoing support to ensure your garden remains healthy and beautiful throughout the seasons.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">36. What if I want to change my garden design after installation?</h3>
+                <p>If you wish to change your garden design after installation, we can work with you to make adjustments. We understand that preferences can evolve, and we are happy to accommodate changes to enhance your garden's beauty and functionality. Please contact us to discuss your ideas, and we will provide options for modifications.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">37. How do you handle plant warranties?</h3>
+                <p>We offer warranties on our plants and services to ensure your satisfaction. The warranty period varies depending on the type of plant and service provided. If a plant fails to thrive within the warranty period due to factors covered by our warranty, we will replace it at no additional cost. Please refer to your service agreement for specific warranty details.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">38. Can you help with seasonal decorations?</h3>
+                <p>Yes, we offer seasonal decoration services to enhance your garden for holidays and special occasions. Our team can create beautiful displays using seasonal plants, flowers, and decorative elements. Whether you want a festive look for the winter holidays or a vibrant spring display, we can help you celebrate the seasons in style.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">39. How do you handle customer feedback?</h3>
+                <p>We value customer feedback and use it to improve our services continually. We encourage you to share your thoughts and experiences with us, whether positive or constructive. Our team reviews all feedback and takes it into account when making decisions about our services. Your input helps us serve you better.</p>
+            </div>
+
+            <div class="contact-point">
+                <h3 class="contact-title">40. What makes PureNest Organics different from other gardening services?</h3>
+                <p>At PureNest Organics, we pride ourselves on our commitment to quality, sustainability, and customer satisfaction. Our team is passionate about gardening and dedicated to creating beautiful, healthy spaces for our clients. We take the time to understand your needs and preferences, ensuring that every project is tailored to you. Our focus on organic practices and eco-friendly solutions sets us apart in the industry.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Us</h4>
+                <p>Email: info@purenestorganics.com</p>
+                <p>Phone: (800) 778-2333</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Follow Us</h4>
+                <p>Instagram: @purenestorganics</p>
+                <p>Facebook: PureNest Organics</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Address</h4>
+                <p class="address">24 Waverly Pl, New York, NY 10003, USA</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
